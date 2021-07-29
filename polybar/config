@@ -119,7 +119,7 @@ font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = bspwm xwindow
 modules-center = date weather
-modules-right = pavolume battery memory2 cpu2
+modules-right = pavolume battery memory2 cpu2 wireless-network
 
 tray-detached = false
 tray-offset-x = 0
@@ -1057,7 +1057,7 @@ format-prefix-foreground = #3EC13F
 format-underline = #3EC13F
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-exec = python -u ~/.config/polybar/scripts/weather.py
+exec = python3 -u ~/.config/polybar/scripts/weather.py
 tail = true
 
 #################################################################################
@@ -1105,7 +1105,7 @@ format-connected = <label-connected>
 ;format-connected = <ramp-signal> <label-connected>
 format-connected-foreground = ${colors.foreground}
 format-connected-background = ${colors.background}
-format-connected-prefix = "  "
+format-connected-prefix = "   "
 format-connected-prefix-foreground = #7e52c6
 format-connected-prefix-background = ${colors.background}
 format-connected-underline = #7e52c6
