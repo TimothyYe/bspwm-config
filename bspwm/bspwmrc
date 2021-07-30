@@ -2,8 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.config/polybar/launch.sh &
-feh --bg-fill --randomize $HOME/GitRepos/blue-sky/wallpapers/*&
-picom --experimental-backends &
+feh --bg-fill --randomize $HOME/GitRepos/wallpapers/*&
+picom &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
