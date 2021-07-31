@@ -1,11 +1,14 @@
 #! /bin/sh
 
+export WINIT_HIDPI_FACTOR=1
+
 # Run the xrandr command if an external monitor is connected to the
 # laptop.  This must be executed before the polybar command, so that
 # polybar can set the two separate bars properly.
 # Set up the two monitors for bspwm with specified monitor names
 external_monitor=$(xrandr --query | grep 'HDMI-A-0' |awk '{print $2}')
-if [[ $external_monitor != disconnected ]]; then
+if [ $external_monitor = connected ]; then
+  echo "connected"
   xrandr --output eDP --primary --mode 1920x1080 --rotate normal --output HDMI-A-0 --mode 2560x1440 --rotate normal --right-of eDP
   bspc monitor eDP -d 1 2 3 4 5
   bspc monitor HDMI-A-0 -d 6 7 8 9 0
@@ -16,20 +19,38 @@ else
   feh --bg-fill --randomize $HOME/GitRepos/wallpapers/*&
 fi
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+# Runs a program unless that program is already running
+function run_single_instance {
+    local program_name=$1
+
+    ps_result=$(ps aux \
+        | grep "${program_name}" \
+        | grep -v "grep" \
+        | wc -l
+        )
+    if [ $ps_result -eq 0 ]; then
+        echo "Running $program_name"
+        `$program_name` &
+    else
+        echo "$program_name already running"
+    fi
+}
+
+# pgrep -x sxhkd > /dev/null || sxhkd &
+run_single_instance sxhkd
 
 $HOME/.config/polybar/launch.sh &
-picom &
+run_single_instance picom
 
 ## Tray Icons
 # sudo apt install network-manager
-nm-applet &
+run_single_instance nm-applet
 
 # sudo apt install blueman
-blueman-applet &
+run_single_instance blueman-applet
 
 # sudo apt install volumeicon-alsa
-volumeicon &
+run_single_instance volumeicon
 
 ## BSPWM configurations
 bspc config border_width         2
