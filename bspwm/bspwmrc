@@ -7,15 +7,16 @@ if [ -x $HOME/.config/bspwm/bspwm_dual_monitor ];then
   bspwm_dual_monitor
   bspc monitor eDP -d 1 2 3 4 5
   bspc monitor HDMI-A-0 -d 6 7 8 9 0
+  feh --bg-fill --randomize $HOME/GitRepos/wallpapers/* --bg-fill --randomize $HOME/GitRepos/wallpapers/*&
 else 
   bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+  feh --bg-fill --randomize $HOME/GitRepos/wallpapers/*&
 fi
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 
 $HOME/.config/polybar/launch.sh &
-feh --bg-fill --randomize $HOME/GitRepos/wallpapers/*&
 picom &
 
 bspc config border_width         2
