@@ -119,7 +119,7 @@ font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = bspwm xwindow
 modules-center = date weather
-modules-right = volume battery memory2 cpu2 wireless-network
+modules-right = volume battery memory2 cpu2 wireless-network networkspeeddown networkspeedup
 
 tray-detached = false
 tray-offset-x = 0
@@ -761,9 +761,9 @@ format-online-background = ${colors.background}
 [module/networkspeedup]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-;interface = wlp3s0
+interface = wlp3s0
 ;interface = enp14s0
-interface = enp0s31f6
+;interface = enp0s31f6
 ;interface = enp4s0
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
@@ -778,9 +778,9 @@ format-connected-background = ${colors.background}
 [module/networkspeeddown]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-;interface = wlp3s0
+interface = wlp3s0
 ;interface = enp14s0
-interface = enp0s31f6
+;interface = enp0s31f6
 ;interface = enp4s0
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
