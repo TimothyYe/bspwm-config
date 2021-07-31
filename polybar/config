@@ -119,7 +119,7 @@ font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = bspwm xwindow
 modules-center = date weather
-modules-right = volume battery memory2 cpu2 wireless-network networkspeeddown networkspeedup
+modules-right = networkspeeddown networkspeedup volume battery memory2 cpu2 wireless-network
 
 tray-detached = false
 tray-offset-x = 0
