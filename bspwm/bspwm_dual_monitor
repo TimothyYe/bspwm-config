@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# set up the two monitors for bspwm with specified monitor names
-external_monitor=$(xrandr --query | grep 'HDMI-A-0')
-if [[ $external_monitor = *connected* ]]; then
-    xrandr --output eDP --primary --mode 1920x1080 --rotate normal --output HDMI-A-0 --mode 2560x1440 --rotate normal --right-of eDP
-fi
