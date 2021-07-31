@@ -20,10 +20,18 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 $HOME/.config/polybar/launch.sh &
 picom &
+
+## Tray Icons
+# sudo apt install network-manager
 nm-applet &
+
+# sudo apt install blueman
 blueman-applet &
+
+# sudo apt install volumeicon-alsa
 volumeicon &
 
+## BSPWM configurations
 bspc config border_width         2
 bspc config window_gap           10
 
@@ -42,4 +50,5 @@ bspc rule -a Firefox desktop='^6'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Spotify desktop='^5'
 
+# Set the default cursor
 xsetroot -cursor_name left_ptr &
