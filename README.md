@@ -26,7 +26,7 @@ My bspwm configuration, a tiling window manager based on binary space partitioni
 
 ![](https://github.com/TimothyYe/bspwm-config/blob/master/snapshots/1.png)
 
-![](https://github.com/TimothyYe/bspwm-config/blob/master/snapshots/2.png)
-
 ![](https://github.com/TimothyYe/bspwm-config/blob/master/snapshots/3.png)
+
+![](https://github.com/TimothyYe/bspwm-config/blob/master/snapshots/2.png)
 
