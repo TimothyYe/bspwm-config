@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 export WINIT_HIDPI_FACTOR=1
 
@@ -8,7 +8,6 @@ export WINIT_HIDPI_FACTOR=1
 # Set up the two monitors for bspwm with specified monitor names
 external_monitor=$(xrandr --query | grep 'HDMI-A-0' |awk '{print $2}')
 if [ $external_monitor = connected ]; then
-  echo "connected"
   xrandr --output eDP --primary --mode 1920x1080 --rotate normal --output HDMI-A-0 --mode 2560x1440 --rotate normal --right-of eDP
   bspc monitor eDP -d 1 2 3 4 5
   bspc monitor HDMI-A-0 -d 6 7 8 9 0
@@ -20,7 +19,7 @@ else
 fi
 
 # Runs a program unless that program is already running
-function run_single_instance {
+function run_single_instance() {
     local program_name=$1
 
     ps_result=$(ps aux \
