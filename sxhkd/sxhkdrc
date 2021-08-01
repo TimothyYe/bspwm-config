@@ -6,6 +6,10 @@
 super + Return
 	alacritty
 
+# Thunar file manager
+super + n
+	Thunar
+
 # program launcher
 alt + @space
 	rofi -show run
