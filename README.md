@@ -1,6 +1,6 @@
 # My bspwm Configuration
 
-My bspwm configuration, a tiling window manager based on binary space partitioning.
+My bspwm configuration, a tiling window manager based on binary space partitioning, with dual monitors support.
 
 # Core Components
 
@@ -10,6 +10,7 @@ My bspwm configuration, a tiling window manager based on binary space partitioni
 | sxhkd | A simple X hotkry daemon. |
 | Polybar | A beautiful and highly customizable status bars. |
 | picom | A lightweight compositor for X11, use it for shadow & opacity effects. |
+| xrandr | An utility to set the size, orientation or reflection of the outputs for a screen. |
 
 # Tools & Applets
 
