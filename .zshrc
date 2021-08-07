@@ -59,8 +59,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(gitfast autojump sublime web-search zsh-autosuggestions extract kubectl)
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -77,7 +76,7 @@ export VISUAL="/usr/local/bin/nvim"
 #ENV parameters for golang
 export GOPATH=$HOME/workspace
 export GOBIN=$HOME/workspace/bin
-export GOROOT=/snap/go/current
+export GOROOT=/usr/local/go
 export GOPROXY=direct
 export PATH=$PATH:$GOPATH/bin:/snap/go/current/bin:$HOME/.cargo/bin
 

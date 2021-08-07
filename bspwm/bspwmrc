@@ -2,6 +2,10 @@
 
 export WINIT_HIDPI_FACTOR=1
 
+# Fix problems with Java applications
+export _JAVA_AWT_WM_NONREPARENTING=1
+wmname LG3D
+
 # Run the xrandr command if an external monitor is connected to the
 # laptop.  This must be executed before the polybar command, so that
 # polybar can set the two separate bars properly.
@@ -53,7 +57,7 @@ run_single_instance volumeicon
 
 ## BSPWM configurations
 bspc config border_width         2
-bspc config window_gap           10
+bspc config window_gap           8
 
 bspc config split_ratio          0.50
 bspc config borderless_monocle   true
