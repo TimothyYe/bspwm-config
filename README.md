@@ -7,7 +7,7 @@ My bspwm configuration, a tiling window manager based on binary space partitioni
 | Name | Description |
 | ---- | ---- |
 | bspwm | A tiling window manager that represents windows as the leaves of a full binary tree. |
-| sxhkd | A simple X hotkry daemon. |
+| sxhkd | A simple X hotkey daemon. |
 | Polybar | A beautiful and highly customizable status bars. |
 | picom | A lightweight compositor for X11, use it for shadow & opacity effects. |
 | xrandr | An utility to set the size, orientation or reflection of the outputs for a screen. |
