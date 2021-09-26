@@ -1,0 +1,81 @@
+#! /bin/bash
+
+export WINIT_HIDPI_FACTOR=1
+
+# Fix problems with Java applications
+export _JAVA_AWT_WM_NONREPARENTING=1
+wmname LG3D
+
+# Run the xrandr command if an external monitor is connected to the
+# laptop.  This must be executed before the polybar command, so that
+# polybar can set the two separate bars properly.
+# Set up the two monitors for bspwm with specified monitor names
+external_monitor=$(xrandr --query | grep 'HDMI-A-0' |awk '{print $2}')
+if [ $external_monitor = connected ]; then
+  xrandr --output eDP --primary --mode 1920x1080 --rate 60 --rotate normal --output HDMI-A-0 --mode 2560x1440 --rate 60 --rotate normal --right-of eDP
+  bspc monitor eDP -d 1 2 3 4 5
+  bspc monitor HDMI-A-0 -d 6 7 8 9 0
+  feh --bg-fill --randomize $HOME/GitRepos/wallpapers/* --bg-fill --randomize $HOME/GitRepos/wallpapers/*&
+else
+  xrandr --output eDP --mode 1920x1080 --rate 60 --rotate normal
+  bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+  feh --bg-fill --randomize $HOME/GitRepos/wallpapers/*&
+fi
+
+# Runs a program unless that program is already running
+function run_single_instance() {
+    local program_name=$1
+
+    ps_result=$(ps aux \
+        | grep "${program_name}" \
+        | grep -v "grep" \
+        | wc -l
+        )
+    if [ $ps_result -eq 0 ]; then
+        echo "Running $program_name"
+        `$program_name` &
+    else
+        echo "$program_name already running"
+    fi
+}
+
+# pgrep -x sxhkd > /dev/null || sxhkd &
+run_single_instance sxhkd
+
+$HOME/.config/polybar/launch.sh &
+run_single_instance picom
+
+## Tray Icons
+# sudo apt install network-manager
+run_single_instance nm-applet
+
+# sudo apt install blueman
+run_single_instance blueman-applet
+
+# sudo apt install volumeicon-alsa
+run_single_instance volumeicon
+
+## BSPWM configurations
+bspc config border_width         2
+bspc config window_gap           8
+bspc config top_padding 30
+bspc config normal_border_color "#5E81AC"
+bspc config focused_border_color "#FF9100"
+bspc config presel_feedback_color "#FF9100"
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+bspc config right_padding 0
+bspc config bottom_padding 0
+bspc config left_padding 0
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^6'
+bspc rule -a Firefox desktop='^6'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Spotify desktop='^5'
+
+# Set the default cursor
+xsetroot -cursor_name left_ptr &
