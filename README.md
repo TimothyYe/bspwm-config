@@ -2,7 +2,7 @@
 
 My bspwm configuration, a tiling window manager based on binary space partitioning, with dual monitors support.
 
-# Core Components
+## Core Components
 
 | Name | Description |
 | ---- | ---- |
@@ -12,7 +12,7 @@ My bspwm configuration, a tiling window manager based on binary space partitioni
 | picom | A lightweight compositor for X11, use it for shadow & opacity effects. |
 | xrandr | An utility to set the size, orientation or reflection of the outputs for a screen. |
 
-# Tools & Applets
+## Tools & Applets
 
 | Name | Description |
 | ---- | ---- |
@@ -23,7 +23,7 @@ My bspwm configuration, a tiling window manager based on binary space partitioni
 | blueman-applet | A tray applet for managing bluetooth. |
 | volumeicon | A lightweight volume control that sits in your systray. |
 
-# Snapshots
+## Snapshots
 
 ![](https://github.com/TimothyYe/bspwm-config/blob/master/snapshots/1.png)
 
