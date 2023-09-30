@@ -81,4 +81,4 @@ bspc rule -a Spotify desktop='^5'
 xsetroot -cursor_name left_ptr &
 
 # Start the ibus daemon
-ibus-daemon -rxR
+ibus-daemon
