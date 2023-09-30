@@ -79,3 +79,6 @@ bspc rule -a Spotify desktop='^5'
 
 # Set the default cursor
 xsetroot -cursor_name left_ptr &
+
+# Start the ibus daemon
+ibus-daemon -rxR
